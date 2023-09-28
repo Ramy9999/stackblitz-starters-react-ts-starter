@@ -10,7 +10,6 @@ function NewTodo({ settodoArr, todoArr }: NewTodoProps) {
   const [todoText, setTodoText] = useState<string>('');
 
   function addTodoHandler() {
-    const todos = [];
     settodoArr([...todoArr, todoText]);
     setTodoText('');
   }
