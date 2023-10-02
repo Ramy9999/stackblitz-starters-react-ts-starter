@@ -3,10 +3,24 @@ import '../style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 // import NewTodo from './newTodo';
 
+interface NewTodoProps {
+  settodoArr: (todoArray: string[]) => void;
+  todoArr: string[];
+}
+
 function Todo({ title, status }) {
   const [todoVisible, setTodoVisible] = useState(true);
-  function completeTodoHandler() {
+  const [todoArr, settodoArr] = useState([]);
+  function completeTodoHandler(index) {
     setTodoVisible(false);
+    // const todos = todoArr.filter((todo, todoIndex) => {
+    //   return todoIndex !== index;
+    // });
+    // settodoArr(todos);
+    // let newtodos = [...todoArr];
+    // newtodos.splice(index);
+    // settodoArr(newtodos);
+    //settodoArr(todoArr.filter((el) => el !== name));
   }
   return (
     <>
@@ -21,15 +35,6 @@ function Todo({ title, status }) {
             position: 'relative',
           }}
         >
-          {/* <div */}
-          {/* // style={{ */}
-          {/* //   margin: 0,
-          //   position: 'absolute',
-          //   top: '50%',
-          //   msTransform: 'translateY(-50%)',
-          //   transform: 'translateY(-50%)',
-          // }
-          > */}
           <div
             style={{
               fontSize: 25,
@@ -50,10 +55,10 @@ function Todo({ title, status }) {
             }}
             type="button"
             className="btn btn-success align-middle"
+            onClick={completeTodoHandler} //add (index)
           >
             {status}
           </button>{' '}
-          {/* // </div> */}
         </p>,
       ]}
     </>
