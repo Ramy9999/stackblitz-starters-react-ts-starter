@@ -27,7 +27,7 @@ function TodoList({ settodoArr, todoArr }: NewTodoProps) {
           />
         ))
       ) : (
-        <p style={{textAlign:'center'}}>No Todos Yet!</p>
+        <p style={{ textAlign: 'center' }}>No Todos Yet!</p>
       )}
     </>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../style.css';
+import '../css/style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 // import NewTodo from './newTodo';
 
@@ -54,7 +54,7 @@ function Todo({ title, status }) {
               marginRight: 20,
             }}
             type="button"
-            className="btn btn-success align-middle"
+            className="btn btn-success align-middle redy"
             onClick={completeTodoHandler} //add (index)
           >
             {status}

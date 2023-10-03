@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import NewTodo from './components/newTodo';
 import TodoList from './components/TodoList';
-import './style.css';
+import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export const App: FC<{ name: string }> = ({ name }) => {

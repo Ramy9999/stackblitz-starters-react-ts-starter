@@ -1,17 +1,34 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
+import '../css/style.css';
 
 interface NewTodoProps {
   settodoArr: (todoArray: string[]) => void;
   todoArr: string[];
 }
 
+const initialTodos = [];
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD':
+      return state.map((todo) => {
+        if (todo.id === action.id) {
+          return { ...todo, todo };
+        }
+      });
+    default:
+      return state;
+  }
+};
+
 function NewTodo({ settodoArr, todoArr }: NewTodoProps) {
   const [todoText, setTodoText] = useState<string>('');
+  const [todos, dispatch] = useReducer(reducer, initialTodos);
 
   function addTodoHandler() {
     settodoArr([...todoArr, todoText]);
     setTodoText('');
+    dispatch('ADD');
   }
   function onChangeHandler(event) {
     setTodoText(event.target.value);
@@ -21,15 +38,15 @@ function NewTodo({ settodoArr, todoArr }: NewTodoProps) {
       <form>
         <div className="input-group mb-3">
           <input
-            className="form-control"
-            style={{
-              width: '87%',
-              height: '6.6vh',
-              borderStyle: 'ridge',
-              borderRadius: 5,
-              borderWidth: 1.6,
-              borderColor: 'white',
-            }}
+            className="form-control beeko"
+            // style={{
+            //   width: '87%',
+            //   height: '6.6vh',
+            //   borderStyle: 'ridge',
+            //   borderRadius: 5,
+            //   borderWidth: 1.6,
+            //   borderColor: 'white',
+            // }}
             name="new"
             type="text"
             placeholder="Create a new todo"
