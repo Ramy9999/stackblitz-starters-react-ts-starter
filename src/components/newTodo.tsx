@@ -26,8 +26,8 @@ const reducer = (state, action) => {
 function NewTodo({
   settodoArr,
   todoArr,
-  setTodoVisible,
-  todoVisible,
+  //setTodoVisible,
+  //todoVisible,
 }: NewTodoProps) {
   //const [todoVisible, setTodoVisible] = useState(false);
   const [todoText, setTodoText] = useState<string>('');
@@ -36,7 +36,7 @@ function NewTodo({
   function addTodoHandler() {
     settodoArr([...todoArr, todoText]);
     setTodoText('');
-    setTodoVisible(true);
+    //setTodoVisible(true);
     dispatch('ADD');
   }
   function onChangeHandler(event) {

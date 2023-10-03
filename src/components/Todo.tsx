@@ -3,16 +3,26 @@ import '../css/style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 // import NewTodo from './newTodo';
 
-interface NewTodoProps {
+interface TodoProps {
   settodoArr: (todoArray: string[]) => void;
   todoArr: string[];
   title: string;
   status: string;
+  setTodoVisible: (todoVisible: boolean) => void;
+  todoVisible: boolean;
 }
 
-function Todo({ title, status, settodoArr, todoArr }) {
+function Todo({
+  title,
+  status,
+  settodoArr,
+  todoArr,
+}: //setTodoVisible,
+//todoVisible,
+TodoProps) {
   const [todoVisible, setTodoVisible] = useState(true);
   //const [todoArr, settodoArr] = useState([]);
+  //const [todoIndex, settodoIndex] = useState(0);
   function completeTodoHandler(event) {
     setTodoVisible(false);
     // const todos = todoArr.filter((todo, todoIndex) => {
@@ -20,7 +30,8 @@ function Todo({ title, status, settodoArr, todoArr }) {
     // });
     // settodoArr(todos);
     let newtodos = [...todoArr];
-    let index = newtodos.indexOf(event.target.dataset.user);
+    //settodoIndex(event.target);
+    let index = newtodos.indexOf(event.target.title);
     //alert(index);
     newtodos.splice(index, 1);
     settodoArr(newtodos);
@@ -68,6 +79,7 @@ function Todo({ title, status, settodoArr, todoArr }) {
             type="button"
             className="btn btn-success align-middle redy"
             onClick={completeTodoHandler} //add (index)
+            title={title}
           >
             {status}
           </button>

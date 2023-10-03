@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 export const App: FC<{ name: string }> = ({ name }) => {
   const [todoArr, settodoArr] = useState([]);
-  const [todoVisible, setTodoVisible] = useState(false);
+  //const [todoVisible, setTodoVisible] = useState(true);
   return (
     <>
       <h1>Todo Appication:</h1>
@@ -16,11 +16,16 @@ export const App: FC<{ name: string }> = ({ name }) => {
       <NewTodo
         settodoArr={settodoArr}
         todoArr={todoArr}
-        setTodoVisible={setTodoVisible}
-        todoVisible={todoVisible}
+        //setTodoVisible={setTodoVisible}
+        //todoVisible={todoVisible}
       />
       <br />
-      <TodoList settodoArr={settodoArr} todoArr={todoArr} />
+      <TodoList
+        settodoArr={settodoArr}
+        todoArr={todoArr}
+        //setTodoVisible={setTodoVisible}
+        //todoVisible={todoVisible}
+      />
     </>
   );
 };

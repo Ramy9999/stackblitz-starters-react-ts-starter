@@ -5,13 +5,20 @@ interface todolistProps {
   todoArr: string[];
 }
 
-interface NewTodoProps {
+interface TodoListProps {
   settodoArr: (todoArray: string[]) => void;
   todoArr: string[];
+  setTodoVisible: (todoVisible: boolean) => void;
+  todoVisible: boolean;
 }
 //{ todoArr }: todolistProps
-function TodoList({ settodoArr, todoArr }: NewTodoProps) {
-  const [todoVisible, setTodoVisible] = useState(true);
+function TodoList({
+  settodoArr,
+  todoArr,
+  //setTodoVisible,
+  //todoVisible,
+}: TodoListProps) {
+  //const [todoVisible, setTodoVisible] = useState(true);
   function completeTodoHandler() {}
   return (
     <>
@@ -24,6 +31,8 @@ function TodoList({ settodoArr, todoArr }: NewTodoProps) {
             status="Complete"
             settodoArr={settodoArr}
             todoArr={todoArr}
+            //setTodoVisible={setTodoVisible}
+            //todoVisible={todoVisible}
           />
         ))
       ) : (
