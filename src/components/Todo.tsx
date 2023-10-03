@@ -6,21 +6,32 @@ import 'bootstrap/dist/css/bootstrap.css';
 interface NewTodoProps {
   settodoArr: (todoArray: string[]) => void;
   todoArr: string[];
+  title: string;
+  status: string;
 }
 
-function Todo({ title, status }) {
+function Todo({ title, status, settodoArr, todoArr }) {
   const [todoVisible, setTodoVisible] = useState(true);
-  const [todoArr, settodoArr] = useState([]);
-  function completeTodoHandler(index) {
+  //const [todoArr, settodoArr] = useState([]);
+  function completeTodoHandler(event) {
     setTodoVisible(false);
     // const todos = todoArr.filter((todo, todoIndex) => {
     //   return todoIndex !== index;
     // });
     // settodoArr(todos);
-    // let newtodos = [...todoArr];
-    // newtodos.splice(index);
-    // settodoArr(newtodos);
-    //settodoArr(todoArr.filter((el) => el !== name));
+    let newtodos = [...todoArr];
+    let index = newtodos.indexOf(event.target.dataset.user);
+    //alert(index);
+    newtodos.splice(index, 1);
+    settodoArr(newtodos);
+    // var array = [...todoArr]; // make a separate copy of the array
+    // var index = array.indexOf(e.target.value);
+    // if (index !== -1) {
+    //   array.splice(index, 1);
+    //   settodoArr({ todoArr: array });
+    // }
+
+    // settodoArr(todoArr.filter((el) => el !== name));
   }
   return (
     <>
@@ -46,6 +57,7 @@ function Todo({ title, status }) {
           >
             {title}
           </div>
+
           <button
             style={{
               msTransform: 'translateY(25%)',
@@ -58,7 +70,7 @@ function Todo({ title, status }) {
             onClick={completeTodoHandler} //add (index)
           >
             {status}
-          </button>{' '}
+          </button>
         </p>,
       ]}
     </>

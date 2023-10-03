@@ -22,8 +22,8 @@ function TodoList({ settodoArr, todoArr }: NewTodoProps) {
             key={Math.random()}
             title={todo}
             status="Complete"
-            //settodoArr={settodoArr}
-            //todoArr={todoArr}
+            settodoArr={settodoArr}
+            todoArr={todoArr}
           />
         ))
       ) : (
