@@ -8,8 +8,9 @@ interface TodoProps {
   todoArr: string[];
   title: string;
   status: string;
-  setTodoVisible: (todoVisible: boolean) => void;
-  todoVisible: boolean;
+  //time: () => number;
+  //setTodoVisible: (todoVisible: boolean) => void;
+  //todoVisible: boolean;
 }
 
 function Todo({
@@ -17,7 +18,8 @@ function Todo({
   status,
   settodoArr,
   todoArr,
-}: //setTodoVisible,
+}: //time,
+//setTodoVisible,
 //todoVisible,
 TodoProps) {
   const [todoVisible, setTodoVisible] = useState(true);
@@ -79,7 +81,7 @@ TodoProps) {
             type="button"
             className="btn btn-success align-middle redy"
             onClick={completeTodoHandler} //add (index)
-            title={title}
+            title={title} //maybe change to time
           >
             {status}
           </button>

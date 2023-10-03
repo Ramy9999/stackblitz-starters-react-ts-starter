@@ -15,9 +15,9 @@ interface TodoListProps {
 function TodoList({
   settodoArr,
   todoArr,
-  //setTodoVisible,
-  //todoVisible,
-}: TodoListProps) {
+}: //setTodoVisible,
+//todoVisible,
+TodoListProps) {
   //const [todoVisible, setTodoVisible] = useState(true);
   function completeTodoHandler() {}
   return (
@@ -31,6 +31,7 @@ function TodoList({
             status="Complete"
             settodoArr={settodoArr}
             todoArr={todoArr}
+            //time={Date.now().valueOf}
             //setTodoVisible={setTodoVisible}
             //todoVisible={todoVisible}
           />
