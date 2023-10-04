@@ -5,8 +5,8 @@ import '../css/style.css';
 interface NewTodoProps {
   settodoArr: (todoArray: string[]) => void;
   todoArr: string[];
-  setTodoVisible: (todoVisible: boolean) => void;
-  todoVisible: boolean;
+  //setTodoVisible: (todoVisible: boolean) => void;
+  //todoVisible: boolean;
 }
 
 const initialTodos = [];
@@ -26,9 +26,9 @@ const reducer = (state, action) => {
 function NewTodo({
   settodoArr,
   todoArr,
-  //setTodoVisible,
-  //todoVisible,
-}: NewTodoProps) {
+}: //setTodoVisible,
+//todoVisible,
+NewTodoProps) {
   //const [todoVisible, setTodoVisible] = useState(false);
   const [todoText, setTodoText] = useState<string>('');
   const [todos, dispatch] = useReducer(reducer, initialTodos);

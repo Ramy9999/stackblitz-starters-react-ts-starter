@@ -8,7 +8,7 @@ interface TodoProps {
   todoArr: string[];
   title: string;
   status: string;
-  //time: () => number;
+  //time: number;
   //setTodoVisible: (todoVisible: boolean) => void;
   //todoVisible: boolean;
 }
@@ -18,8 +18,8 @@ function Todo({
   status,
   settodoArr,
   todoArr,
-}: //time,
-//setTodoVisible,
+  //time,
+}: //setTodoVisible,
 //todoVisible,
 TodoProps) {
   const [todoVisible, setTodoVisible] = useState(true);

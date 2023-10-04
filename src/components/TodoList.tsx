@@ -8,8 +8,8 @@ interface todolistProps {
 interface TodoListProps {
   settodoArr: (todoArray: string[]) => void;
   todoArr: string[];
-  setTodoVisible: (todoVisible: boolean) => void;
-  todoVisible: boolean;
+  //setTodoVisible: (todoVisible: boolean) => void;
+  //todoVisible: boolean;
 }
 //{ todoArr }: todolistProps
 function TodoList({
@@ -31,7 +31,7 @@ TodoListProps) {
             status="Complete"
             settodoArr={settodoArr}
             todoArr={todoArr}
-            //time={Date.now().valueOf}
+            //time={Date.now()}
             //setTodoVisible={setTodoVisible}
             //todoVisible={todoVisible}
           />
