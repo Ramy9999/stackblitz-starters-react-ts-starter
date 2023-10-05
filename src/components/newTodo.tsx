@@ -5,39 +5,53 @@ import '../css/style.css';
 interface NewTodoProps {
   settodoArr: (todoArray: string[]) => void;
   todoArr: string[];
+  addtodoHandlerReducer: (
+    //todoArry: string[],
+    todo: string
+  ) => void;
   //setTodoVisible: (todoVisible: boolean) => void;
   //todoVisible: boolean;
 }
 
-const initialTodos = [];
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD':
-      return state.map((todo) => {
-        if (todo.id === action.id) {
-          return { ...todo, todo };
-        }
-      });
-    default:
-      return state;
-  }
-};
+// const initialTodos = [];
+// const reducer = (state, action) => {
+//   console.log(action.type);
+//   switch (action.type) {
+//     case 'ADD':
+//       console.log(state);
+//       console.log(action.todo);
+//       return [...action.todoArray, action.todo];
+//     // return {
+//     //   ...state,
+//     //   todoArray: [...action.todoArray, action.todo],
+//     // };
+
+//     default:
+//       return state;
+//   }
+// };
 
 function NewTodo({
   settodoArr,
   todoArr,
+  addtodoHandlerReducer,
 }: //setTodoVisible,
 //todoVisible,
 NewTodoProps) {
   //const [todoVisible, setTodoVisible] = useState(false);
   const [todoText, setTodoText] = useState<string>('');
-  const [todos, dispatch] = useReducer(reducer, initialTodos);
+  //console.log('reducer is:', reducer);
+  // const [_, dispatch] = useReducer(reducer, initialTodos);
 
   function addTodoHandler() {
-    settodoArr([...todoArr, todoText]);
-    setTodoText('');
+    //settodoArr([...todoArr, todoText]);
+    //setTodoText('');
+    // todoArr = [...todoArr, todoText];
+    console.log('New to do adding Array', todoArr);
     //setTodoVisible(true);
-    dispatch('ADD');
+    // dispatch({ type: 'ADD', todoArray: todoArr, todo: todoText });
+    addtodoHandlerReducer(todoText);
+    //setTodoText('');
   }
   function onChangeHandler(event) {
     setTodoText(event.target.value);
@@ -66,7 +80,8 @@ NewTodoProps) {
           <button
             type="button"
             className="btn btn-info text-white"
-            onClick={todoText != '' ? addTodoHandler : null}
+            //onClick={todoText != '' ? addTodoHandler : null}
+            onClick={addTodoHandler}
           >
             Add
           </button>
