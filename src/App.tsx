@@ -17,6 +17,15 @@ const reducer = (state, action) => {
         ...state,
         todoArray: [...action.todoArray, action.todo],
       };
+    // return {
+    //   todoArr: [
+    //     {
+    //       //id: state.todos.length,
+    //       text: action.todo,
+    //     },
+    //     ...state.todoArr,
+    //   ],
+    // };
 
     default:
       return state;
@@ -25,7 +34,7 @@ const reducer = (state, action) => {
 
 export const App: FC<{ name: string }> = ({ name }) => {
   const [todoArr, settodoArr] = useState([]);
-  const [_, dispatch] = useReducer(reducer, initialState);
+  const [_, dispatch] = useReducer(reducer, { todoArr });
   //const [todoVisible, setTodoVisible] = useState(true);
   function addTodoHandlerReducer(todoy) {
     dispatch({ type: 'ADD', todoArray: todoArr, todo: todoy });
